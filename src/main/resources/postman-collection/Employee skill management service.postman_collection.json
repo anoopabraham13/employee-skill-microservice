@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "be5e2ad5-c39b-47ad-8951-4ddb21fe797b",
+		"name": "Employee skill management service",
+		"description": "Collection to handle NHS Employee skill management service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Private-Token",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dateOfBirth\": \"1992-01-01\",\r\n  \"firstName\": \"Adam\",\r\n  \"gender\": \"MALE\",\r\n  \"lastName\": \"John\",\r\n  \"middleName\": \"Jo\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all employees",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Private-Token",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee?pageNo=0&pageSize=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 1,\n        \"firstName\": \"Test\",\n        \"middleName\": \"test\",\n        \"lastName\": \"test\",\n        \"dateOfBirth\": \"1992-01-01\",\n        \"gender\": \"MALE\",\n        \"skills\": [\n            {\n                \"id\": 2,\n                \"skill\": {\n                    \"id\": 3,\n                    \"skillName\": \"JAVA\",\n                    \"skillDescription\": \"programing language\",\n                    \"new\": false\n                },\n                \"skillLevel\": \"PRACTITIONER\",\n                \"new\": false\n            },\n             {\n                \"skill\": {\n                    \"id\": 4\n                },\n                \"skillLevel\": \"EXPERT\",\n                \"new\": false\n            }\n            \n        ],\n        \"new\": false\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "skill",
+			"item": [
+				{
+					"name": "skill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"skillName\": \"JUNIT\",\n    \"skillDescription\": \"code testing\",\n    \"new\": false\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/skill/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"skill",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "skill by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/skill/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"skill",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all skills",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/skill?pageNo=1&pageSize=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"skill"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update skill",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"skillName\": \"JAVA2\",\n    \"skillDescription\": \"codding\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/skill/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"skill",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee-skill",
+			"item": [
+				{
+					"name": "employee Skill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Private-Token",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employeeId\": 1,\r\n  \"skillDetailRequest\": [\r\n    {\r\n      \"skillId\": 1,\r\n      \"skillLevel\": \"EXPERT\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee/skill/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee",
+								"skill",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "emoployee skill by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee/skill/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee",
+								"skill",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all employees skill",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Private-Token",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee/skill?employeeId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee",
+								"skill"
+							],
+							"query": [
+								{
+									"key": "employeeId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update employee skill",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Private-Token",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jnbBCZ-PSMRqyVRkPHFV"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"skill\": {\n        \"id\": 1,\n        \"skillName\": \"JAVA1\",\n        \"skillDescription\": \"codding\"\n    },\n    \"skillLevel\": \"PRACTITIONER\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/employee/skill/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"employee",
+								"skill",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

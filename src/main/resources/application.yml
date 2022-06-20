@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: employee-skill
+  datasource:
+    url: jdbc:postgresql://localhost:5432/employee-skill
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+server:
+  port: 9080
+
